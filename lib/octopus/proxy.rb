@@ -105,10 +105,7 @@ module Octopus
     end
 
     def clean_connection_proxy
-      self.current_shard = Octopus.master_shard
-      self.current_model = nil
-      self.current_group = nil
-      self.block = nil
+      self
     end
 
     def check_schema_migrations(shard)
