@@ -10,6 +10,7 @@ module Octopus
 
     module SharedMethods
       def using(shard)
+        Thread.current['octopus.current_shard'] = shard
         if block_given?
           raise Octopus::Exception, <<-EOF
 #{name}.using is not allowed to receive a block, it works just like a regular scope.
