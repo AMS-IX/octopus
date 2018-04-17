@@ -138,6 +138,7 @@ module Octopus
   end
 
   def self.using(shard, &block)
+    Thread.current['octopus.current_shard'] = shard
     conn = ActiveRecord::Base.connection
 
     if conn.is_a?(Octopus::Proxy)
